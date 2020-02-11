@@ -91,12 +91,40 @@ describe("About Applying What We Have Learnt", function() {
   /* UNCOMMENT FOR EXTRA CREDIT */
   
   it("should find the largest prime factor of a composite number", function () {
-    function largestPrime() {
+    //This function accepts a number and return the largest prime factor within that number
+    function largestPrimeFactor(num) {
+      //Initialize an empty obj
+      let primeObj = {};
+      //Loop from 2 until num and add index as key and "true" as value
+      for(let i = 2; i < num; i++) {
+        primeObj[i] = true;
+      }
 
+      
+      //Declare a value called limit, assign it the value of the square root of num
+      let limit = Math.sqrt(num);
+      //Loop from 2 until limit, increment by 1
+      for(let i = 2; i < limit; i++) {
+        //if the value of the key at current element is true
+        if(primeObj[i] === true) {
+          //create a nested loop, starting at the current element of i squared, runs until num, and increments by i
+          for(let j = i * i; j < num; j+=i) {
+            //change each of these values in the object to false
+            delete primeObj[j];
+          }
+        }
+      }          
+      
+      let primeFactors = [];
+      for(let prime in primeObj) {
+        if(num % prime === 0) primeFactors.push(prime);
+      }
+      
+      return Math.max(...primeFactors);
     }
 
-    let answer = largestPrime();
-    expect(answer).toBe(100);
+    let answer = largestPrimeFactor(1389);
+    expect(answer).toBe(463);
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
