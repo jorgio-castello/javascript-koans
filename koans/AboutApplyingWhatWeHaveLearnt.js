@@ -128,12 +128,32 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-    function largestPalindrome(digits) {
-
+    //Accepts nothing and returns the largest palindrome made from the product of two 3 digit numbers
+    function largestPalindrome() {
+      let lowerBound = 900; //Allows more control of the loop - instead of looping from 999 to 1, first check numbers between 900 - 999, then 800 - 999, so on and so forth
+      let foundPalindromeBool = false; //The while loop doesn't resolve, but simply keeps the loop going until an answer is returned
+      while(!foundPalindromeBool) {
+        //Starting at the largest 3 digit number, this loop decrements by 1 until it reaches the lower bound
+        for(let firstNumber = 999; firstNumber >= lowerBound; firstNumber--) {
+          //Starting at the largest 3 digit number, this loop decrements by 1 until it reaches the lower bound
+          for(let secondNumber = 999; secondNumber >= lowerBound; secondNumber--) {
+            //The product is converted to a string so it can be compared against its reverse
+            let product = (firstNumber * secondNumber).toString();
+            //The product string is split into an array and then reversed
+            let reversedProduct = product.split('').reverse();
+            //The reversed product is converted from an array back into a string
+            reversedProduct = reversedProduct.join('');
+            //If the product string and its reverse are the same, return the two numbers that resulted in the product
+            if(product === reversedProduct) return [firstNumber, secondNumber];
+          }
+        }
+        //After each cycle of the parent for-loop, the lowerBound becomes 100 lower
+        lowerBound -= 100;
+      }  
     }
 
     let answer = largestPalindrome();
-    expect(answer).toBe(100);
+    expect(answer).toEqual([993, 913]);
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
