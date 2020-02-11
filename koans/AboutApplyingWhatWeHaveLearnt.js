@@ -89,26 +89,51 @@ describe("About Applying What We Have Learnt", function() {
 
   /*********************************************************************************/
   /* UNCOMMENT FOR EXTRA CREDIT */
-  /*
-  it("should find the largest prime factor of a composite number", function () {
   
+  it("should find the largest prime factor of a composite number", function () {
+    function largestPrime() {
+
+    }
+
+    let answer = largestPrime();
+    expect(answer).toBe(100);
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-    
+    function largestPalindrome(digits) {
+
+    }
+
+    let answer = largestPalindrome();
+    expect(answer).toBe(100);
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-      
+      function smallestNumberDivisible(min, max) {
+
+      }
+
+      let answer = smallestNumberDivisible();
+      expect(answer).toBe(100);
     
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
-    
+    function differenceSumDifferenceSquare(num) {
+
+    }
+
+    let answer = differenceSumDifferenceSquare();
+    expect(answer).toBe(100);
   });
 
   it("should find the 10001st prime", function () {
+    function thousandthsFirstPrime() {
 
+    }
+
+    let answer = thousandthsFirstPrime();
+    expect(answer).toBe(100);
   });
-  */
+  
 });
