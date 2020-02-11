@@ -158,17 +158,41 @@ describe("About Applying What We Have Learnt", function() {
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
       function smallestNumberDivisible(min, max) {
+        //Declare foundAnswerBool initialized as false
+        let foundAnswerBool = false;
+        //Declare answer initialized as max
+        let answer = max;
+        //Declare divisibleCount initialized as 0
+        let divisibleCount = 0;
 
+        //Create while loop that iterates until foundAnswerBool is true
+          //This loop will not actually resolve, rather the function will return its value
+        while(!foundAnswerBool) {
+          //Loop starting at index max, loop until the index is greater than or equal to min, decrement by 1
+          for(let divisor = max; divisor >= min; divisor--) {
+            //if the answer divided by the current index has a remainder, break the for-loop
+            if(answer % divisor !== 0) break;
+            //if not, increment divisibleCount by 1
+            divisibleCount++;
+            //if the divisibleCount is equal to max, return the answer
+            if(divisibleCount === max) return answer;
+          }
+          //If the for-loop is broken,
+          //increase answer by max
+          answer += max;
+          //reset divisibleCount to 0
+          divisibleCount = 0;
+        }
       }
 
-      let answer = smallestNumberDivisible();
-      expect(answer).toBe(100);
+      let answer = smallestNumberDivisible(1, 20);
+      expect(answer).toBe(232792560);
     
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
     function differenceSumDifferenceSquare(num) {
-
+      
     }
 
     let answer = differenceSumDifferenceSquare();
