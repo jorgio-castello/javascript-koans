@@ -191,12 +191,16 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
+    //Assuming this function receives a number that serves as the max, and calculates the difference of a range between 1 and max
     function differenceSumDifferenceSquare(num) {
-      
+      let range = _.range(1, num + 1);
+      let sumSquares = _.chain(range).map(n => n ** 2).reduce((a, b) => a + b).value();
+      let squareSums = (_(range).reduce((a, b) => a + b)) ** 2;
+      return squareSums - sumSquares;
     }
 
-    let answer = differenceSumDifferenceSquare();
-    expect(answer).toBe(100);
+    let answer = differenceSumDifferenceSquare(5);
+    expect(answer).toBe(170);
   });
 
   it("should find the 10001st prime", function () {
