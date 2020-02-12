@@ -204,7 +204,7 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the 10001st prime", function () {
-    function thousandthsFirstPrime(upperbound = 7928) {
+    function thousandthsFirstPrime(upperbound = 104744) {
       //Declare an empty arr to hold prime numbers
       let primes = [];
 
@@ -244,7 +244,7 @@ describe("About Applying What We Have Learnt", function() {
     }
 
     let answer = thousandthsFirstPrime();
-    expect(answer).toBe(7927);
+    expect(answer).toBe(104743);
   });
   
 });
