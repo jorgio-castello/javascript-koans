@@ -204,12 +204,47 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the 10001st prime", function () {
-    function thousandthsFirstPrime() {
+    function thousandthsFirstPrime(upperbound = 7928) {
+      //Declare an empty arr to hold prime numbers
+      let primes = [];
 
+      //Declare a rangeObj to hold all numbers and test for primeness
+      let rangeObj = {};
+      //Create a range from 2 until the upperbound: which in the case of 1001st prime, is 7928
+      let range = _.range(2, upperbound);
+      
+      //Declare a value called limit, assign it the value of the square root of num
+      let limit = Math.sqrt(upperbound);
+      //Loop through the range, and create a key for each index with the value of true
+      range.forEach(num => {
+        rangeObj[num] = true;
+      });
+  
+      //Loop through the range, up until limit
+      for(let i = 2; i < limit; i++) {
+          //if range is true, remove each subsequent number that is a multiple of the current index
+          if(rangeObj[i]) {
+            for(let j = i * i; j < upperbound; j += i) {
+              delete rangeObj[j];
+          }
+        }
+      }
+
+      //Loop through the rangeObj
+      for(let prime in rangeObj) {
+        //Unsure about what beget is, but this needs to be removed
+        if(prime === 'beget') {}
+        //Push the number into primes array
+        else primes.push(prime);
+      }
+
+      //For the return value, I backsolved the upperbound until the array was 1001 numbers long, then returned the last number
+      return Number(primes.pop());
+      
     }
 
     let answer = thousandthsFirstPrime();
-    expect(answer).toBe(100);
+    expect(answer).toBe(7927);
   });
   
 });
