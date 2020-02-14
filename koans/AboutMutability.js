@@ -50,9 +50,9 @@ describe("About Mutability", function() {
     }
     var aPerson = new Person ("John", "Smith");
 
-    aPerson.firstname = "John";
-    aPerson.lastname  = "Smith";
-    aPerson.fullName  = "John Smith";
+    aPerson.firstname = "Penny";
+    aPerson.lastname  = "Andrews";
+    aPerson.fullName  = "Penny Andrews";
     
     expect(aPerson.getFirstName()).toBe('John');
     expect(aPerson.getLastName()).toBe('Smith');
@@ -62,7 +62,7 @@ describe("About Mutability", function() {
       return aPerson.lastname + ", " + aPerson.firstname;
     };
     
-    expect(aPerson.getFullName()).toBe('Smith, John');
+    expect(aPerson.getFullName()).toBe('Andrews, Penny');
   });
 
 });
